@@ -1,0 +1,25 @@
+INDEX VERSION 1.134
+C:\ezwell\back_mini\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2057016691.index
+\mini\src\main\java
+C:\ezwell\back_mini\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4169058484.index
+\mini\src\main\java
+C:\ezwell\back_mini\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3785799776.index
+\mini\src\main\java
+C:\ezwell\back_mini\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3582269502.index
+\mini\src\main\java
+C:\ezwell\back_mini\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\98385423.index
+\mini\src\main\java
+C:\ezwell\back_mini\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4159539063.index
+\mini\src\main\java
+C:\ezwell\back_mini\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3124895470.index
+\mini\src\main\java
+C:\ezwell\back_mini\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\853517759.index
+\mini\src\main\java
+C:\ezwell\back_mini\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2384575027.index
+\mini\src\main\java
+C:\ezwell\back_mini\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1585028098.index
+\mini\src\main\java
+C:\ezwell\back_mini\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1784298588.index
+\mini\src\main\java
+C:\ezwell\back_mini\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1793185943.index
+\mini\src\main\java

@@ -1,0 +1,73 @@
+package tube;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import jakarta.servlet.http.HttpSession;
+
+@Controller
+public class ViewdController {
+
+	@Autowired
+	@Qualifier("viewdmapperservice")
+	ViewdService viewdService;
+	
+	@Autowired
+	@Qualifier("boardmapperservice")
+	BoardService boardService;
+
+    @PostMapping("/viewd")
+    public String addViewd(@RequestBody ViewdDTO viewd) {
+        viewdService.insertViewd(viewd);
+        return "시청 기록 저장";
+    }
+    
+    @GetMapping("/board/{seq}")
+    public String getBoardDetail(@PathVariable("seq") int seq, HttpSession session, Model model) {
+        BoardDTO board = boardService.getBoardById(seq);
+
+        String writer = board.getWriter();
+
+        String userId = (String) session.getAttribute("id");
+
+        if (userId != null) {
+            ViewdDTO viewd = new ViewdDTO();
+            viewd.setId(writer);   
+            viewd.setBoardid(seq); 
+            viewd.setViewtime(new java.sql.Timestamp(System.currentTimeMillis()));
+
+            viewdService.insertViewd(viewd);
+        }
+
+        model.addAttribute("board", board);
+        return "board/detail"; 
+    }
+    
+    @GetMapping("/feed/history")
+    public ModelAndView viewdList(@RequestParam("id") String id, @RequestParam("boardid") int boardid, HttpSession session) {
+        ModelAndView mv = new ModelAndView("viewdListPage");
+        String userId = (String) session.getAttribute("id");
+        
+        if (userId == null) {
+            return new ModelAndView("redirect:/login");
+        }
+        
+        List<ViewdDTO> viewdList = viewdService.selectViewdById(userId);
+        mv.addObject("userId", userId);
+        mv.addObject("viewdList", viewdList);
+        
+        mv.setViewName("feed/history");
+
+        return mv;
+    }
+}
+

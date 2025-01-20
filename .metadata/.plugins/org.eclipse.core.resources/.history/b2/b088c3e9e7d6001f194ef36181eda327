@@ -1,0 +1,30 @@
+package tube;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service("viewdmapperservice")
+public class ViewdMapperService implements ViewdService {
+
+	@Autowired
+	ViewdMapper mapper;
+	
+	@Override
+	@Transactional
+    public void insertViewd(ViewdDTO viewd) {
+        mapper.insertViewd(viewd);
+    }
+
+    @Override
+    public List<ViewdDTO> selectViewdById(String id) {
+        return mapper.selectViewdById(id);
+    }
+    
+    @Override
+    public BoardDTO getBoardById(int seq) {
+        return boardMapper.getDetail(seq);  // BoardMapper의 getDetail 메서드를 호출
+    }
+}
